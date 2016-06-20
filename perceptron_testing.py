@@ -1,4 +1,12 @@
-import os, sys, argparse, json, perceptron_utils
+# -*- coding: utf-8 -*-
+
+__date__ = "20.06.2016"
+
+import os
+import sys
+import argparse
+import json
+import perceptron_utils
 
 def main(argv):
   parser = argparse.ArgumentParser()

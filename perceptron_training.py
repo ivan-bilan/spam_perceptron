@@ -1,4 +1,13 @@
-import re, os, random, sys, argparse, json, perceptron_utils
+# -*- coding: utf-8 -*-
+
+__date__ = "20.06.2016"
+
+import os
+import random
+import sys
+import argparse
+import json
+import perceptron_utils
 from collections import Counter
 
 learning_rate = 0.01
