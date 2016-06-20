@@ -4,6 +4,16 @@ Project structure:
 
  training script: perceptron_training.py, 
  testing script:  perceptron_testing.py
+ bash overhead for training: perceptron_training.sh
+
+Input parameters:
+-p : path to positive training data
+-n : path to negative training data
+-pp : path to positive test data
+-nn : path to negative test data
+
+
+Training script example: perceptron_training.py -p=enron1/ham/ -n=enron1/spam/ -pp=enron2/ham/ -nn=enron2/spam/ -m=model1
 
 Both scripts also display training and testing errors
 
