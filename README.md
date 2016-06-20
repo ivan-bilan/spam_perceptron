@@ -4,6 +4,7 @@ Project structure:
 
  training script: perceptron_training.py, 
  testing script:  perceptron_testing.py, 
+ helper functions : perceptron_utils.py, 
  bash overhead for training with all parameters included: perceptron_training.sh
 
 Input parameters:
