@@ -10,7 +10,6 @@ import json
 import perceptron_utils
 from collections import Counter
 
-
 learning_rate = 0.01
 vocab_size = 20000
 training_iterations = 50

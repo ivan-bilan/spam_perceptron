@@ -4,7 +4,9 @@ __date__ = "20.06.2016"
 
 # Code shared for perceptron training and testing.
 import re
+import codecs
 import nltk
+from itertools import chain
 from nltk import word_tokenize
 from nltk.util import ngrams
 
@@ -17,20 +19,17 @@ def dot_product(features, weights):
 def tokens(filename):
   """
   Read feature tokens
-  Better results are achieved when splitting on
-  whitespaces ("\s+") and not on none characters ("\W+")
   """
-  with open(filename, 'r') as myfile:
+  with codecs.open(filename, 'rb', encoding="windows-1251") as myfile:
     text = myfile.read().strip().lower()
 
-  # token = nltk.word_tokenize(unicode(text))
-  # bigrams = ngrams(token,2)
+  token = nltk.word_tokenize(unicode(text))
+  unigrams = ngrams(token, 1)
+  trigrams = ngrams(token, 3)
 
-  unigrams = re.split(r"\s+", text)
+  # unigrams = re.split(r"\s+", text)
 
-  # bigrams = re.split(r"\b\w+\s\w+", text)
-
-  return unigrams
+  return chain(unigrams, trigrams)
 
 
 def prediction(features, weights):
