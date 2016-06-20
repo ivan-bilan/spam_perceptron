@@ -33,7 +33,6 @@ def main(argv):
 
   opts = parser.parse_args()
 
-
   files_labels = \
     [(opts.positive_dir + "/" + f, 1) for f in os.listdir(opts.positive_dir) if f.endswith(opts.filesuffix)] + \
     [(opts.negative_dir + "/" + f, 0) for f in os.listdir(opts.negative_dir) if f.endswith(opts.filesuffix)]
