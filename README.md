@@ -20,6 +20,8 @@ Both scripts also display training and testing errors
 
 Dependencies:
 Python 2.7, 
-nltk, 
+nltk
+ 
+ 
 Get the training an test sets from https://sites.google.com/site/rothbenj/teaching/repetitorium/perceptron.tgz?attredirects=0
 
