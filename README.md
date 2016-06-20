@@ -7,9 +7,9 @@ Project structure:
  bash overhead for training: perceptron_training.sh
 
 Input parameters:
--p : path to positive training data
--n : path to negative training data
--pp : path to positive test data
+-p : path to positive training data, 
+-n : path to negative training data, 
+-pp : path to positive test data, 
 -nn : path to negative test data
 
 
