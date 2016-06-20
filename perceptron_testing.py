@@ -10,8 +10,8 @@ import perceptron_utils
 
 def main(argv):
   parser = argparse.ArgumentParser()
-  parser.add_argument('-p', '--positive_dir', required = True)
-  parser.add_argument('-n', '--negative_dir', required = True)
+  parser.add_argument('-pp', '--positive_dir', required = True)
+  parser.add_argument('-nn', '--negative_dir', required = True)
   parser.add_argument('-m', '--model', required = True)
   parser.add_argument('-s', '--filesuffix', default='.txt')
   opts = parser.parse_args()
