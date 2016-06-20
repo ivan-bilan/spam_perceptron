@@ -1,10 +1,11 @@
-Train a perception classifier to detect spam emails.
+Train a perception classifier to detect spam emails
 
 Project structure:
- training script: perceptron_training.py
+
+ training script: perceptron_training.py, 
  testing script:  perceptron_testing.py
 
-Both scripts also display trainign and testing errors.
+Both scripts also display trainign and testing errors
 
 Dependencies:
 Python 2.7, 
