@@ -13,7 +13,7 @@ Input parameters:
 -nn : path to negative test data
 
 
-Training script example: perceptron_training.py -p=enron1/ham/ -n=enron1/spam/ -pp=enron2/ham/ -nn=enron2/spam/ -m=model1
+Call example of the training script: perceptron_training.py -p=enron1/ham/ -n=enron1/spam/ -pp=enron2/ham/ -nn=enron2/spam/ -m=model1
 
 Both scripts also display training and testing errors
 
