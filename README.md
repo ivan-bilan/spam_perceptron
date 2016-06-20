@@ -11,7 +11,7 @@ Input parameters:
 -n : path to negative training data, 
 -pp : path to positive test data, 
 -nn : path to negative test data
-
+-m : model path
 
 Call example of the training script: perceptron_training.py -p=enron1/ham/ -n=enron1/spam/ -pp=enron2/ham/ -nn=enron2/spam/ -m=model1
 
