@@ -3,8 +3,8 @@ Train a perception classifier to detect spam emails
 Project structure:
 
  training script: perceptron_training.py, 
- testing script:  perceptron_testing.py
- bash overhead for training: perceptron_training.sh
+ testing script:  perceptron_testing.py, 
+ bash overhead for training with all parameters included: perceptron_training.sh
 
 Input parameters:
 -p : path to positive training data, 
