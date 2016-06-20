@@ -1,5 +1,12 @@
+# -*- coding: utf-8 -*-
+
+__date__ = "20.06.2016"
+
 # Code shared for perceptron training and testing.
 import re
+import nltk
+from nltk import word_tokenize
+from nltk.util import ngrams
 
 threshold = 0.6
 
@@ -11,12 +18,19 @@ def tokens(filename):
   """
   Read feature tokens
   Better results are achieved when splitting on
-  whitespaces ("\s+") and not on non characters ("\W+")
+  whitespaces ("\s+") and not on none characters ("\W+")
   """
   with open(filename, 'r') as myfile:
     text = myfile.read().strip().lower()
 
-  return re.split("\s+", text)
+  # token = nltk.word_tokenize(unicode(text))
+  # bigrams = ngrams(token,2)
+
+  unigrams = re.split(r"\s+", text)
+
+  # bigrams = re.split(r"\b\w+\s\w+", text)
+
+  return unigrams
 
 
 def prediction(features, weights):
