@@ -1,6 +1,5 @@
 /model*
 .idea
 .pyc
-/enron1
-/enron2
+/enron*
 model1
