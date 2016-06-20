@@ -7,7 +7,7 @@ Project structure:
 Both scripts also display trainign and testing errors.
 
 Dependencies:
-Python 2.7
-nltk
+Python 2.7, 
+nltk, 
 Get the trainind an test sets from https://sites.google.com/site/rothbenj/teaching/repetitorium/perceptron.tgz?attredirects=0
 
