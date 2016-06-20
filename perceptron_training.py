@@ -10,10 +10,12 @@ import json
 import perceptron_utils
 from collections import Counter
 
+
 learning_rate = 0.01
-vocab_size = 1000
+vocab_size = 20000
 training_iterations = 50
 random.seed(0)
+
 
 def vocabulary(filelist, vocabsize):
   token_counter = Counter()
@@ -33,18 +35,24 @@ def main(argv):
 
   opts = parser.parse_args()
 
+  # read training data
   files_labels = \
     [(opts.positive_dir + "/" + f, 1) for f in os.listdir(opts.positive_dir) if f.endswith(opts.filesuffix)] + \
     [(opts.negative_dir + "/" + f, 0) for f in os.listdir(opts.negative_dir) if f.endswith(opts.filesuffix)]
   random.shuffle(files_labels)
   filelist = [fl[0] for fl in files_labels]
 
+  # read test data
+  files_labels_test = \
+    [(opts.positive_dir_test + "/" + f, 1) for f in os.listdir(opts.positive_dir_test) if f.endswith(opts.filesuffix)] + \
+    [(opts.negative_dir_test + "/" + f, 0) for f in os.listdir(opts.negative_dir_test) if f.endswith(opts.filesuffix)]
+
   vocab = vocabulary(filelist, vocab_size)
   weights = {}
   for token in vocab:
     weights[token] = 0.0
 
-  for i in range(training_iterations):
+  for i in xrange(training_iterations):
     error_count = 0
     for input_file, desired_output in files_labels:
       features = set(perceptron_utils.filtered_tokens(input_file, vocab))
@@ -57,27 +65,19 @@ def main(argv):
     print('-' * 20)
     print "iteration: ", i + 1
     print "train errors: ", error_count
-  print "number of instances: ", len(files_labels)
+    error_count = 0
+    for input_file, desired_output in files_labels_test:
+      features = set(perceptron_utils.filtered_tokens(input_file, vocab))
+      result = perceptron_utils.prediction(features, weights)
+      if desired_output != result:
+        error_count += 1
+    print "test errors: ", error_count
+
+  print "number of train instances: ", len(files_labels)
+  print "number of test instances: ", len(files_labels_test)
+
   with open(opts.model, 'w') as modelfile:
     json.dump(weights, modelfile)
-
-
-  files_labels = \
-    [(opts.positive_dir_test + "/" + f, 1) for f in os.listdir(opts.positive_dir) if f.endswith(opts.filesuffix)] + \
-    [(opts.negative_dir_test + "/" + f, 0) for f in os.listdir(opts.negative_dir) if f.endswith(opts.filesuffix)]
-
-  with open(opts.model, 'r') as modelfile:
-    weights = json.load(modelfile)
-  vocab = set(weights.keys())
-
-  error_count = 0
-  for input_file, desired_output in files_labels:
-    features = set(perceptron_utils.filtered_tokens(input_file, vocab))
-    result = perceptron_utils.prediction(features, weights)
-    if desired_output != result:
-      error_count += 1
-  print "test errors: ", error_count
-  print "number of instances: ", len(files_labels)
 
 
 if __name__ == "__main__":
